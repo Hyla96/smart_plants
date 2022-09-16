@@ -13,7 +13,7 @@ jobs:
       - uses: cedx/setup-dart@v3
       - run: dart --version
       - name: Install dependencies
-        run: dart pub get && dart pub global activate dart_frog_cli && dart_frog build
+        run: dart pub get && dart pub global activate dart_frog_cli && export PATH="$PATH":"$HOME/.pub-cache/bin" && dart_frog build
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
