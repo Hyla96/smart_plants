@@ -14,7 +14,7 @@ jobs:
       - uses: cedx/setup-dart@v3
       - run: dart --version
       - name: Install dependencies
-      - run: dart pub get && dart pub global activate dart_frog_cli && dart_frog build
+        run: dart pub get && dart pub global activate dart_frog_cli && dart_frog build
       - name: Pushing to Heroku
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
@@ -25,4 +25,4 @@ jobs:
           appdir: build
 
       - name: Print version again
-      - run: dart --version
+        run: dart --version
