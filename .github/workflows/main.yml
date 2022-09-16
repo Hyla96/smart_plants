@@ -21,7 +21,7 @@ jobs:
           heroku_app_name: "smart-plants-dart"
           heroku_email: "gab.costache@gmail.com"
 #          usedocker: true
-          appdir: build§
+          appdir: build
 #          dontuseforce: true
 
 
