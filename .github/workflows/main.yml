@@ -15,8 +15,7 @@ jobs:
       - run: dart pub get
       - run: dart pub global activate dart_frog_cli
       - run: export PATH="$PATH":"$HOME/.pub-cache/bin" && dart_frog build
-      - run: cd build
-      - run: ls
+      - run: cd build && ls
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
