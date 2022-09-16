@@ -9,11 +9,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Install Dart
       - uses: actions/checkout@v2
-      - uses: dart-lang/setup-dart@v1.3
+      - uses: cedx/setup-dart@v3
+      - run: dart --version
       - name: Install dependencies
         run: dart pub get && dart pub global activate dart_frog_cli && dart_frog build
-
+      - name: Pushing to Heroku
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
@@ -21,3 +23,5 @@ jobs:
           heroku_email: "gab.costache@gmail.com"
           usedocker: true
           appdir: build
+      - name: Print version again
+      - run: dart --version
