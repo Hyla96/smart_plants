@@ -23,5 +23,6 @@ jobs:
           heroku_email: "gab.costache@gmail.com"
           usedocker: true
           appdir: build
+
       - name: Print version again
       - run: dart --version
