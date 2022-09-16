@@ -2,6 +2,7 @@
 
 # Files and directories created by pub
 .dart_tool/
+.idea/
 .packages
 pubspec.lock
 
@@ -11,3 +12,5 @@ build/
 
 # Test related files
 coverage/
+/config.yaml
+/.idea/
