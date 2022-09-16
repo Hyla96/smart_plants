@@ -20,8 +20,9 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "smart-plants-dart"
           heroku_email: "gab.costache@gmail.com"
-          usedocker: true
-          appdir: build
+#          usedocker: true
+          appdir: build§
+          dontuseforce: true
 
 
       - name: Print version again
