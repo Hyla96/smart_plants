@@ -22,7 +22,7 @@ jobs:
           heroku_email: "gab.costache@gmail.com"
 #          usedocker: true
           appdir: build§
-          dontuseforce: true
+#          dontuseforce: true
 
 
       - name: Print version again
