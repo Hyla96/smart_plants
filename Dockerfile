@@ -5,19 +5,14 @@ FROM dart:2.17.5 AS build
 WORKDIR /app
 
 # Resolve app dependencies.
-COPY build ./
-COPY build/config.yaml /app/config.yaml
+COPY . .
 
 RUN dart pub get
+RUN dart pub global activate dart_frog_cli
+RUN export PATH="$PATH":"$HOME/.pub-cache/bin" && dart_frog build
 
-RUN dart compile exe ./bin/server.dart -o /app/server
-#
-## Build minimal serving image from AOT-compiled `/server` and required system
-## libraries and configuration files stored in `/runtime/` from the build stage.
-#FROM scratch
-#COPY --from=build /runtime/ /
-#COPY --from=build /app/bin/server /app/bin/
+RUN dart compile exe ./build/bin/server.dart -o ./build/bin/server
 
 # Start server.
-CMD ["/app/server"]
+CMD ["./build/bin/server"]
 #CMD dart ./bin/server.dart

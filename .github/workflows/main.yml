@@ -10,20 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: cedx/setup-dart@v3
-      - run: dart --version
-      - run: dart pub get
-      - run: dart pub global activate dart_frog_cli
-      - run: export PATH="$PATH":"$HOME/.pub-cache/bin" && dart_frog build
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "smart-plants-dart"
           heroku_email: "gab.costache@gmail.com"
           usedocker: true
-#          appdir: build
           dontuseforce: 1
-
-
-      - name: Print version again
-        run: dart --version
