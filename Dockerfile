@@ -5,7 +5,7 @@ FROM dart:stable AS build
 WORKDIR /app
 
 # Resolve app dependencies.
-COPY ./build/pubspec.* ./build/
+COPY ./build/pubspec.* ./
 RUN dart pub get
 
 # Copy app source code and AOT compile it.
