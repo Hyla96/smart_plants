@@ -5,14 +5,10 @@ FROM dart:2.17.5 AS build
 WORKDIR /app
 
 # Resolve app dependencies.
-COPY ./build/pubspec.* ./
-COPY ./build/config.yaml ./
+ADD build ./
+
 RUN dart pub get
 
-# Copy app source code and AOT compile it.
-COPY ./build ./
-# Ensure packages are still up-to-date if anything has changed
-RUN dart pub get --offline
 #RUN dart compile exe ./bin/server.dart -o bin/server
 #
 ## Build minimal serving image from AOT-compiled `/server` and required system
