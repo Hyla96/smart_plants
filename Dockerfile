@@ -9,7 +9,7 @@ ADD build ./
 
 RUN dart pub get
 
-#RUN dart compile exe ./bin/server.dart -o bin/server
+RUN dart compile exe ./bin/server.dart -o /app/server
 #
 ## Build minimal serving image from AOT-compiled `/server` and required system
 ## libraries and configuration files stored in `/runtime/` from the build stage.
@@ -18,5 +18,5 @@ RUN dart pub get
 #COPY --from=build /app/bin/server /app/bin/
 
 # Start server.
-#CMD ["/app/bin/server"]
-CMD dart ./bin/server.dart
+CMD ["/app/server"]
+#CMD dart ./bin/server.dart
