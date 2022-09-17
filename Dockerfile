@@ -6,6 +6,7 @@ WORKDIR /app
 
 # Resolve app dependencies.
 COPY build ./
+COPY build/config.yaml /app/config.yaml
 
 RUN dart pub get
 
