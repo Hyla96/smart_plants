@@ -6,6 +6,7 @@ WORKDIR /app
 
 # Resolve app dependencies.
 COPY ./build/pubspec.* ./
+COPY ./build/config.* ./
 RUN dart pub get
 
 # Copy app source code and AOT compile it.
