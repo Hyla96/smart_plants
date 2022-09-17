@@ -9,7 +9,7 @@ class Configuration {
   final Config config;
 
   static Future<Configuration> create() async {
-    final doc = await File("config.yaml").readAsString();
+    final doc = await File("/config.yaml").readAsString();
     final yaml = loadYaml(doc) as YamlMap;
     return Configuration(Config.fromJson(Map.from(yaml.value)));
   }
