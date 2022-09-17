@@ -5,7 +5,7 @@ FROM dart:2.17.5 AS build
 WORKDIR /app
 
 # Resolve app dependencies.
-ADD build ./
+COPY build ./
 
 RUN dart pub get
 
