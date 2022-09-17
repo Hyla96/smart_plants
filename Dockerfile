@@ -9,10 +9,10 @@ COPY ./build/pubspec.* ./build/
 RUN dart pub get
 
 # Copy app source code and AOT compile it.
-COPY ./build ./build
+COPY ./build ./
 # Ensure packages are still up-to-date if anything has changed
 RUN dart pub get --offline
-RUN dart compile exe ./build/bin/server.dart -o bin/server
+RUN dart compile exe ./bin/server.dart -o bin/server
 
 # Build minimal serving image from AOT-compiled `/server` and required system
 # libraries and configuration files stored in `/runtime/` from the build stage.
